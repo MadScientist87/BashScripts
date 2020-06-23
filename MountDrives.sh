@@ -24,7 +24,7 @@ FindExternalDrives () {
             mountPoint=$(diskutil info $index | grep 'Mount Point')
             if mount | grep "on $mountPoint" > /dev/null; then
                 echo "$index not mounted"
-                #diskutil mount $index
+                diskutil mount $index
             else
                 echo "$index mounted already"
             fi
