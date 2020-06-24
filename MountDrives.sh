@@ -1,6 +1,7 @@
 #!/bin/sh
-
+export PATH=/usr/local/bin:$PATH
 declare -a drives
+
 # Function to find all the drives that are external and fill in global array
 # of drives names
 FindExternalDrives () {
@@ -30,8 +31,7 @@ FindExternalDrives () {
             fi
         done
 
-    osascript -e 'display notification  "All external disks successfully mounted"'
+    osascript -e 'display notification  "All external disks successfully mounted" with title "HDD Status"'
 } || { # your 'catch' block
-    osascript -e 'display notification \"Error occured mounting disks\" with title \"HDD Status\"'
+    osascript -e 'display notification "Error occured mounting disks" with title "HDD Status"'
 }
-
